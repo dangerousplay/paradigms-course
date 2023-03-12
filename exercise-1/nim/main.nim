@@ -1,5 +1,6 @@
 import std/rdstdin
 import std/deques
+import std/math
 import std/re
 import sugar
 from std/strutils import parseFloat
@@ -31,6 +32,8 @@ proc evaluateOp(a: float64, op: string, b: float64): float64 =
       result = a * b
     of "/":
       result = a / b
+    of "^":
+      result = pow(a, b)
     else:
       raise newException(ValueError, "Invalid operand: " & op)
 
